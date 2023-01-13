@@ -8,3 +8,15 @@
 
 ## Description of Project
 Web scraper application that finds articles about Python to feed through GPT3 to give us a simple explanation about a topic
+
+### Trello
+
+User stories are [HERE](https://trello.com/invite/devbff/ATTI2d0404d73d0e6086f7f0e41ed8e08e1c1E264344)
+
+### Whiteboard
+
+![CLI_wireframe](Dev_BFF_Wireframe.png)
+
+### Domain Model
+
+![Domain Model](domain_modeling.png)
