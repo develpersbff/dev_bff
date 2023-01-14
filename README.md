@@ -6,6 +6,10 @@
 
 # Name of Project: Dev_B.F.F.
 
+## Team Name
+
+Cobra Kai
+
 ## Description of Project
 Web scraper application that finds articles about Python to feed through GPT3 to give us a simple explanation about a topic
 
@@ -15,8 +19,8 @@ User stories are [HERE](https://trello.com/invite/devbff/ATTI2d0404d73d0e6086f7f
 
 ### Whiteboard
 
-![CLI_wireframe](Dev_BFF_Wireframe.png)
+![CLI_wireframe](new_cli_wf.png)
 
 ### Domain Model
 
-![Domain Model](domain_modeling.png)
+![Domain Model](newest_domain.png)
