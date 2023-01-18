@@ -16,9 +16,9 @@ def api_call(full_article):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Summarize this:\n\n{full_article}",
+        prompt=f"Summarize the following in 2-3 paragraphs:\n\n'''{full_article}'''",
         temperature=0.7,
-        max_tokens=256,
+        max_tokens=500,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
@@ -27,4 +27,4 @@ def api_call(full_article):
 
 
 if __name__ == "__main__":
-    api_call(article_sample)
+    pass
