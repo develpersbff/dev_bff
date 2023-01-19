@@ -19,7 +19,7 @@ def welcome():
     """)
 
 
-def what_next():
+def what_next(cont_input):
     print("""
     What would you like to do next? 
     "n" for a different article, 
@@ -28,11 +28,11 @@ def what_next():
     """)
     user_input2 = str(input('>> '))
     if user_input2.lower() == "n":
-        api_call(web_scraper_second(user_input))
+        api_call(web_scraper_second(cont_input))
         print("thank you for using dev_BFF, see you next time!")
         return
     if user_input2.lower() == "l":
-        url = web_scraper(user_input)
+        url = web_scraper(cont_input)
         print(f"{url}\n")
         print("thank you for using dev_BFF, see you next time!")
         return
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     welcome()
     user_input = str(input('>> '))
     api_call(web_scraper(user_input))
-    what_next()
+    what_next(user_input)

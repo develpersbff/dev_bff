@@ -7,6 +7,7 @@ def web_scraper(user_input):
     with sync_playwright() as p:
         # user_input = str(input('>>'))
         if user_input:
+            print("Loading results...")
             browser = p.chromium.launch(slow_mo=1000)
             page = browser.new_page()
             page.goto(f'https://duckduckgo.com/?q=' + user_input)
@@ -27,10 +28,12 @@ def web_scraper(user_input):
             user_input = str(input('>>>'))
         return top_result_link
 
+
 def web_scraper_second(user_input):
     with sync_playwright() as p:
         # user_input = str(input('>>'))
         if user_input:
+            print("Loading results...")
             browser = p.chromium.launch(slow_mo=1000)
             page = browser.new_page()
             page.goto(f'https://duckduckgo.com/?q=' + user_input)
