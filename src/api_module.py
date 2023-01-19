@@ -24,8 +24,10 @@ def api_call(full_article_url):
         presence_penalty=0
     )
     api_summary_text = response["choices"][0]["text"]
+    print(f'\n**** article summary ****')
     print(api_summary_text)
     return api_summary_text
+
 
 
 if __name__ == "__main__":
