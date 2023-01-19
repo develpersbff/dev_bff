@@ -1,5 +1,5 @@
 import pytest
-from src.web_scraping_module import web_scraper, sync_playwright, re
+from src.web_scraping_module import web_scraper, web_scraper_second, sync_playwright, re
 
 import requests
 from bs4 import BeautifulSoup
@@ -7,6 +7,12 @@ from bs4 import BeautifulSoup
 # Test to check to see if BeautifulSoup import works
 # @pytest.mark.skip("TODO")
 def test_web_scraper_import_beautifulSoup():
+    beautiful_soup = BeautifulSoup
+    actual = bool(BeautifulSoup)
+    expected = True
+    assert actual == expected
+
+def test_web_scraper_second_import_beautifulSoup():
     beautiful_soup = BeautifulSoup
     actual = bool(BeautifulSoup)
     expected = True
