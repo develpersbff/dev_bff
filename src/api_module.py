@@ -11,19 +11,21 @@ article_sample = "Jupiter is the fifth planet from the Sun and the largest in th
 
 
 # function to call api
-def api_call(full_article):
+def api_call(full_article_url):
     openai.api_key = API_KEY
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Summarize the following in 2-3 paragraphs:\n\n'''{full_article}'''",
+        prompt=f"Summarize the following in 2-3 paragraphs:\n\n'''{full_article_url}'''",
         temperature=0.7,
         max_tokens=500,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
     )
-    print(response["choices"][0]["text"])
+    api_summary_text = response["choices"][0]["text"]
+    print(api_summary_text)
+    return api_summary_text
 
 
 if __name__ == "__main__":
