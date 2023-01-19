@@ -1,15 +1,10 @@
 import pytest
 from src.web_scraping_module import web_scraper
-from unittest.mock import patch
-import mock
-import builtins
+
 import requests
 from bs4 import BeautifulSoup
 
-
-def get_input(text):
-    return input(text)
-
+# tests that both the git request and BeasutifulSoup is working
 # @pytest.mark.skip("TODO")
 def test_web_scraper_get_working():
     url = 'https://www.demoblaze.com/'
@@ -22,10 +17,15 @@ def test_web_scraper_get_working():
 
     assert actual == expected
 
+
+# @pytest.mark.skip("TODO")
 def test_web_scraper_gives_result():
     actual = web_scraper('testing123')
     expected = 'https://testing123.education.mn.gov/test/index.htm'
     assert actual == expected
+
+
+def test_web_scrapper_valid_url():
 
 
 
