@@ -19,4 +19,5 @@ def welcome():
 
 if __name__ == '__main__':
     welcome()
-    api_call(web_scraper("query"))
+    user_input = str(input('>> '))
+    api_call(web_scraper(user_input))
