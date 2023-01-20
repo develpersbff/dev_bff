@@ -91,11 +91,11 @@ def welcome():
         ''')
     print("""
     *********************************
-    Welcome to Dev_BFF! 
+    Welcome to Dev_BFF!       
     Your best friend in learning! 
     Input a search term to 
     retrieve summarized articles.
-    *Be patient, results take a few seconds to load*
+    *Results take a few seconds to load*
     Have fun!
     *********************************
     """)
