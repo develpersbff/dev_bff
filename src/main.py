@@ -1,12 +1,94 @@
 from api_module import api_call
 from web_scraping_module import web_scraper, web_scraper_second
-import sys
+import speech_recognition as sr
+import pyttsx3
+
+engine = pyttsx3.init()
 
 
-article_sample = "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky, and has been known to ancient civilizations since before recorded history. It is named after the Roman god Jupiter.[19] When viewed from Earth, Jupiter can be bright enough for its reflected light to cast visible shadows,[20] and is on average the third-brightest natural object in the night sky after the Moon and Venus."
+def audio_results(text_result):
+    engine.say("Do you want me to read your results? Please type in (yes or no)")
+    engine.runAndWait()
+    response = input("\n\nDo you want me to read your results? Please type in (yes/no): ")
+    if response == "yes":
+        engine.say(text_result)
+        engine.runAndWait()
+
+    else:
+        print("No Worries!")
+
+
+def audio_assistant():
+
+    def on_start():
+        print()
+
+    def on_word(name):
+        print()
+
+    def on_end(name):
+        print(name)
+
+    engine.connect('started-utterance', on_start)
+    engine.connect('started-word', on_word)
+    engine.connect('finished-utterance', on_end)
+
+    engine.say("Do you want to use an audio assistant? Please type in (yes or no): ")
+    engine.runAndWait()
+
+    response = input("Do you want to use an audio assistant? Please type in (yes/no): ")
+    if response == "yes":
+        print("Audio assistant activated.")
+        engine.say("Audio assistant activated. Welcome to Dev_BFF! Your best friend in learning. Dev BFF is an online tool to help developers summarize long articles. Want to know how to get started?")
+        print('Welcome to Dev_BFF! Your best friend in learning. Dev BFF is an online tool to help developers summarize long articles! Want to know how to get started?')
+        engine.runAndWait()
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print('Say Something!')
+            audio = r.listen(source)
+            print('Done!')
+            engine.say(" To get started... Input a search term to retrieve summarized articles. Have fun!")
+
+        text = r.recognize_google(audio)
+        print('''
+
+        ██████╗░███████╗██╗░░░██╗░░░░░░██████╗░███████╗███████╗
+        ██╔══██╗██╔════╝██║░░░██║░░░░░░██╔══██╗██╔════╝██╔════╝
+        ██║░░██║█████╗░░╚██╗░██╔╝░░░░░░██████╦╝█████╗░░█████╗░░
+        ██║░░██║██╔══╝░░░╚████╔╝░░░░░░░██╔══██╗██╔══╝░░██╔══╝░░
+        ██████╔╝███████╗░░╚██╔╝░░█████╗██████╦╝██║░░░░░██║░░░░░
+        ╚═════╝░╚══════╝░░░╚═╝░░░╚════╝╚═════╝░╚═╝░░░░░╚═╝░░░░░
+            ''')
+        print("""
+            *********************************
+            Welcome to Dev_BFF! 
+            Your best friend in learning! 
+            Input a search term to 
+            retrieve summarized articles.
+            *Be patient, results take a few seconds to load*
+            Have fun!
+            *********************************
+            """)
+        engine.runAndWait()
+        link = web_scraper("query")
+        user_input = api_call(link)
+        audio_results(user_input)
+
+    else:
+        print("Audio assistant not activated.")
+        print('Welcome to Dev_BFF! Your best friend in learning. Dev BFF is an online tool to help developers summarize long articles')
 
 
 def welcome():
+    print('''
+
+    ██████╗░███████╗██╗░░░██╗░░░░░░██████╗░███████╗███████╗
+    ██╔══██╗██╔════╝██║░░░██║░░░░░░██╔══██╗██╔════╝██╔════╝
+    ██║░░██║█████╗░░╚██╗░██╔╝░░░░░░██████╦╝█████╗░░█████╗░░
+    ██║░░██║██╔══╝░░░╚████╔╝░░░░░░░██╔══██╗██╔══╝░░██╔══╝░░
+    ██████╔╝███████╗░░╚██╔╝░░█████╗██████╦╝██║░░░░░██║░░░░░
+    ╚═════╝░╚══════╝░░░╚═╝░░░╚════╝╚═════╝░╚═╝░░░░░╚═╝░░░░░
+        ''')
     print("""
     *********************************
     Welcome to Dev_BFF! 
@@ -42,7 +124,8 @@ def what_next(cont_input):
 
 
 if __name__ == '__main__':
+    audio_assistant()
     welcome()
-    user_input = str(input('>> '))
-    api_call(web_scraper(user_input))
-    what_next(user_input)
+    link = web_scraper("query")
+    user_input = api_call(link)
+    what_next(link)

@@ -29,6 +29,5 @@ def api_call(full_article_url):
     return api_summary_text
 
 
-
 if __name__ == "__main__":
     pass
