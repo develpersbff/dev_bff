@@ -31,3 +31,6 @@ User stories are [HERE](https://trello.com/invite/devbff/ATTI2d0404d73d0e6086f7f
 - required installs: 
 - python-dotenv
 - openai
+- SpeechRecognition
+- pyttsx3
+- pyaudio
